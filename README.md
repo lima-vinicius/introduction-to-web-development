@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://skywell.software/wp-content/uploads/2019/01/javascript-vs-html-vs-css-1024x683.jpg" alt="HTML, CSS and Javascript logo"/>
+    <img width="300px" src="https://skywell.software/wp-content/uploads/2019/01/javascript-vs-html-vs-css-1024x683.jpg" alt="HTML, CSS and Javascript logo"/>
 </p>
 
 # Introduction to web development 
