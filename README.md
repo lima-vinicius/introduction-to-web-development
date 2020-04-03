@@ -1,11 +1,7 @@
-<div display="flex">
-    <p>
-        <img width="350px" src="https://skywell.software/wp-content/uploads/2019/01/javascript-vs-html-vs-css-1024x683.jpg" alt="HTML, CSS and Javascript logo"/>
-    </p>
-    <p>
-        <img width="300px" src="https://pplware.sapo.pt/wp-content/uploads/2016/05/nodejs_04_thumb.jpg" alt="Node logo"/>
-    </p>
-</div>
+<p>
+    <img width="350px" src="https://skywell.software/wp-content/uploads/2019/01javascript-vs-html-vs-css-1024x683.jpg" alt="HTML, CSS and Javascript logo"/>
+    <img width="300px" src="https://pplware.sapo.pt/wp-content/uploads/2016/05/nodejs_04_thumbjpg" alt="Node logo"/>
+</p>
 
 # Introduction to web development 
 This project aims at the practical application of the contents studied on web development through the WorkshopDev given by Rocketseat.
