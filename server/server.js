@@ -1,7 +1,8 @@
 // Imported the express in a variable to configure the server and use the functions
-const express = require("express");
-const path = require("path");
-const nunjucks = require("nunjucks");
+const express = require('express');
+const path = require('path');
+const nunjucks = require('nunjucks');
+const db = require('./db')
 
 const server = express();
 
@@ -12,68 +13,83 @@ server.use('/style', express.static(path.join(__dirname, '../client/style')));
 server.use('/scripts', express.static(path.join(__dirname, '../client/scripts')));   
 
 
+//habilitar uso do req.body
+server.use(express.urlencoded({ extended:true }))
+
 //Configured nunjucks
 nunjucks.configure('../client/components', {
     express: server,
     noCache: true,
 });
 
-    
-const ideas = [
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729007.svg",
-        title: "Curso de Programação",
-        category: "Estudos",
-        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores dolores quo pariatur harum dolorum fugiat voluptates delectus veniam architecto amet quos qui consequatur iure, deserunt nulla aut earum culpa expedita?",
-        url: "https://github.com/viniciuslima-99"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729005.svg",
-        title: "Exercícios",
-        category: "Saúde",
-        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores dolores quo pariatur harum dolorum fugiat voluptates delectus veniam architecto amet quos qui consequatur iure, deserunt nulla aut earum culpa expedita?",
-        url: "https://github.com/viniciuslima-99"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729027.svg",
-        title: "Meditação",
-        category: "Mentalidade",
-        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores dolores quo pariatur harum dolorum fugiat voluptates delectus veniam architecto amet quos qui consequatur iure, deserunt nulla aut earum culpa expedita?",
-        url: "https://github.com/viniciuslima-99"
-    },
-    {
-        img: "https://image.flaticon.com/icons/svg/2729/2729032.svg",
-        title: "Karaokê",
-        category: "Diversão em Família",
-        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores dolores quo pariatur harum dolorum fugiat voluptates delectus veniam architecto amet quos qui consequatur iure, deserunt nulla aut earum culpa expedita?",
-        url: "https://github.com/viniciuslima-99"
-    },
-]
-
 
 // Created the route / and /ideas
-server.get('/', function(req, res){
+server.get('/', (req, res) => {
     // req would be the request that the frontend makes and the res would be the answer
 
-    const reversedIdeas = [...ideas].reverse();
+    db.all(`SELECT * FROM ideas`, (err, rows) => {
+        if (err){
+            console.log(err)
+            return res.send("Erro no banco de dados!")
+        }
 
-    let lastIdeas = [];
-
-    for (let idea of reversedIdeas) {
-        if(lastIdeas.length < 2) {
-            lastIdeas.push(idea)
+        const reversedIdeas = [...rows].reverse();
+    
+        let lastIdeas = [];
+    
+        for (let idea of reversedIdeas) {
+            if(lastIdeas.length < 2) {
+                lastIdeas.push(idea)
+            };
         };
-    };
-
-    return res.render('home.html', {ideas: lastIdeas}) 
+    
+        return res.render('home.html', {ideas: lastIdeas}) 
+    })
 });
 
-server.get('/ideas', function(req, res) {
+server.get('/ideas', (req, res) => {
 
-    const reversedIdeas = [...ideas].reverse();
+    db.all(`SELECT * FROM ideas`, (err, rows) => {
+        if (err){
+            console.log(err)
+            return res.send("Erro no banco de dados!")
+        }
+ 
+        const reversedIdeas = [...rows].reverse();
+        return res.render('ideas.html', {ideas: reversedIdeas})
+    })
 
-    res.render('ideas.html', {ideas: reversedIdeas})
 });
+
+server.post('/', (req, res) =>   {
+        //Inserted data on table
+        const query = `
+        INSERT INTO ideas(
+            img,
+            title,
+            category,
+            description,
+            url
+        ) VALUES (?,?,?,?,?);            
+        `   
+        console.log(req.body)
+        const values = [
+        req.body.image,
+        req.body.title,
+        req.body.category,
+        req.body.description,
+        req.body.link
+        ];
+        
+        db.run(query, values, (err) => {
+            if (err){
+                console.log(err)
+                return res.send("Erro no banco de dados!")
+            }
+            return res.redirect('/ideas')
+        });
+    
+})
 
 // Used the listen function of express to connect the server to port 3000
 server.listen(3000); 
