@@ -1,6 +1,5 @@
-<p>
-    <img width="350px" src="https://skywell.software/wp-content/uploads/2019/01javascript-vs-html-vs-css-1024x683.jpg" alt="HTML, CSS and Javascript logo"/>
-    <img width="300px" src="https://pplware.sapo.pt/wp-content/uploads/2016/05/nodejs_04_thumbjpg" alt="Node logo"/>
+<p align="center">
+    <img width="350px" src="./client/images/logo-README.jpeg" alt="HTML, CSS, Javascript, Node.js and Sqlite logo"/>
 </p>
 
 # Introduction to web development 
@@ -20,13 +19,14 @@ git clone https://github.com/viniciuslima-99/introduction-to-web-development.git
 
 ### Front-end
 
-* **[HTML5](https://developer.mozilla.org/docs/Web/HTML/HTML5)** -  HyperText Markup Language(HTML) is a markup language for the World Wide Web and is a key Internet technology, originally proposed by Opera Software. It is the fifth version of the HTML language.
-* **[CSS3](https://developer.mozilla.org/docs/Web/CSS)** - Cascading Style Sheets (CSS) is a mechanism for adding style to a web document. It is the third version.
+* **[HTML](https://developer.mozilla.org/docs/Web/HTML/HTML5)** -  HyperText Markup Language(HTML) is a markup language for the World Wide Web and is a key Internet technology, originally proposed by Opera Software. It is the fifth version of the HTML language.
+* **[CSS](https://developer.mozilla.org/docs/Web/CSS)** - Cascading Style Sheets (CSS) is a mechanism for adding style to a web document. It is the third version.
 * **[Javascript](https://developer.mozilla.org/docs/Web/JavaScript)** - JavaScript is a structured interpreted programming language, high-level script with weak dynamic typing and multi-paradigm.
 
 ### Back-end
 
-* **[Node](https://nodejs.org/en/)** - An asynchronous event driven JavaScript runtime, designed to build scalable network applications.
+* **[Node](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs)** - An asynchronous event driven JavaScript runtime, designed to build scalable network applications.
+* **[Sqlite](https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Thunderbird_extensions/HowTos/Common_Thunderbird_Extension_Techniques/Use_SQLite)** - SQLite is a C language library that implements an embedded SQL database. Programs that use the SQLite library can access the SQL database without running a separate DBMS process. 
 
 ## GitHub
 
