@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="800px" src="./client/images/logo-README.jpeg" alt="HTML, CSS, Javascript, Node.js and Sqlite logo"/>
+    <img width="900px" src="./client/images/logo-README.jpeg" alt="HTML, CSS, Javascript, Node.js and Sqlite logo"/>
 </p>
 
 # Introduction to web development 
