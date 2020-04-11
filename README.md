@@ -1,11 +1,12 @@
 <p align="center">
-    <img width="800px" src="./client/images/logo-README.jpeg" alt="HTML, CSS, Javascript, Node.js and Sqlite logo"/>
+    <img width="900px" src="./client/images/logo-README.jpeg" alt="HTML, CSS, Javascript, Node.js and Sqlite logo"/>
 </p>
 
 # Introduction to web development 
 This project aims at the practical application of the contents studied on web development through the WorkshopDev given by Rocketseat.
 
 ### Project brief
+This web application has the purpose of seeking ideas for what to do at home in the quarantine caused by COVID-19. The application has several sections. The home page has a brief explanation of the application and also has a list of the latest ideas posted. The user can post a new idea by pressing the "Adicionar ideia" button, where a modal will appear asking for the information of the new idea. The ideas page lists all registered ideas and also has the possibility to post a new idea just like the home page.
 
 ### First Steps
 
